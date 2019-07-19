@@ -7,7 +7,7 @@ public class Graph {
 
     private final Map<String, Vertex> graph;
 
-    public Graph(EmployeeEntity[] edges) {
+    Graph(EmployeeEntity[] edges) {
         graph = new HashMap<>(edges.length);
 
         for (EmployeeEntity e : edges) {
@@ -20,7 +20,7 @@ public class Graph {
         }
     }
 
-    protected void deikstra(String city_from) {
+    void deikstra(String city_from) {
         final Vertex source = graph.get(city_from);
         NavigableSet<Vertex> store = new TreeSet<>();
 
@@ -59,7 +59,7 @@ public class Graph {
         }
     }
 
-    protected List printPath(String city_from, String city_to) {
+    List printPath(String city_from, String city_to) {
         List list = new ArrayList();
 
         if (!graph.containsKey(city_to)) {

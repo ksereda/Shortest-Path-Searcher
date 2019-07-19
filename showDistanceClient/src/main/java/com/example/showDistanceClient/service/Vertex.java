@@ -15,7 +15,7 @@ public class Vertex implements Comparable<Vertex> {
         this.name = name;
     }
 
-    protected void printPath(List list, String startName) {
+    void printPath(List list, String startName) {
 
         if (this == this.previous) {
         } else if (this.previous == null) {
