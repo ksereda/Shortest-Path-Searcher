@@ -26,14 +26,4 @@ public class EmployeeEntity implements Serializable {
     @Column(name="distance", nullable=false, length=200)
     public Long distance;
 
-    @Override
-    public String toString() {
-        return "EmployeeEntity{" +
-                "id=" + id +
-                ", city_from='" + city_from + '\'' +
-                ", city_to='" + city_to + '\'' +
-                ", distance=" + distance +
-                '}';
-    }
-
 }
