@@ -20,4 +20,9 @@ public class RemoteMvcController {
         return service.getAllEmployees();
     }
 
+    @GetMapping("/data")
+    public List<EmployeeEntity> data(){
+        return service.getAllEmployees();
+    }
+
 }
