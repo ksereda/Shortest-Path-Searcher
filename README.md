@@ -30,13 +30,20 @@ Go to the localhost:8080 and add some points.
     D, C, 80
     
 ----
+### Using Feign and Hystrix
 
-Go to localhost:8082 and then search the shortest way from A to C.
+Go to 
+    
+    localhost:8082 
+    
+and then search the shortest way from A to C.
 
-The second service (showDistanceClient) receives data from the database through the first service (addDistanceClient) by using Feign Client.
+The second service `showDistanceClient` receives data from the database through the first service `addDistanceClient` by using `Feign Client.`
 
-If first service (addDistanceClient) will be disable, the second service (showDistanceClient) will show you personal message (not error page 404).
-This is achieved by using the Hystrix library from the Netflix stack, which is embedded in the Feign Client.
+If first service `addDistanceClient` will be `disable`, the second service `showDistanceClient` will show you `personal message` (not error page 404).
+This is achieved by using the `Hystrix library` from the `Netflix` stack, which is embedded in the `Feign Client.`
+
+Follow `ServiceFeignClient` in code.
 
 ----
 ### Using Zuul
