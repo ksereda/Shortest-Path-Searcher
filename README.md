@@ -45,6 +45,18 @@ The second service `showDistanceClient` receives data from the database through 
 If first service `addDistanceClient` will be `disable`, the second service `showDistanceClient` will show you `personal message` (not error page 404).
 This is achieved by using the `Hystrix library` from the `Netflix` stack, which is embedded in the `Feign Client.`
 
+If you go to the `second service` on url
+
+    localhost:8082
+   
+and press button `Load Data`
+or by using postman (http://localhost:8082/getAllDataFromAddService)
+
+you will receive message with animation loader (not 500 server error)
+
+    Sorry, service is temporarily unavailable.
+    Try to repeat after a while
+
 Follow `ServiceFeignClient` in code.
 
 
@@ -60,7 +72,7 @@ In the `second service` (showDistanceClient), `@GetMapping("/data")` mapping was
 
 If `first service` is available, then we will receive data from DB.
 
-If we go to the `second service` on url
+If you go to the `second service` on url
 
     localhost:8082/data
     
