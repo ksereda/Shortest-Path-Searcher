@@ -32,6 +32,8 @@ Go to the localhost:8080 and add some points.
 ----
 ### Using Feign and Hystrix
 
+#### First example (Using Feign Client):
+
 Go to 
     
     localhost:8082 
@@ -44,6 +46,31 @@ If first service `addDistanceClient` will be `disable`, the second service `show
 This is achieved by using the `Hystrix library` from the `Netflix` stack, which is embedded in the `Feign Client.`
 
 Follow `ServiceFeignClient` in code.
+
+
+#### Second example (Using Hystrix):
+
+A test REST controller with `@GetMapping("/data")` mapping was added to the `first service` (addDistanceClient), which receives all the data from the database in the form of JSON.
+
+Go to 
+
+    localhost:8081/data
+    
+In the `second service` (showDistanceClient), `@GetMapping("/data")` mapping was added, which, using `RestTemplate`, accesses the `first service` and calls its `data()` method using `@GetMapping("/data")` URL to get all the data from the database.
+
+If `first service` is available, then we will receive data from DB.
+
+If we go to the `second service` on url
+
+    localhost:8082/data
+    
+we will receive the data in the form of JSON
+
+If `first service` is unavailable, we will not receive a 500 server error, we will get a response
+
+    Service is not available now. Please try later
+    
+which `second service` generates in the `failed()` method.
 
 ----
 ### Using Zuul
