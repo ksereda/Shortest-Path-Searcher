@@ -4,7 +4,26 @@ Using Eureka, Feign Client, Zuul, MySQL.
 
 This application will help you find the shortest path in the graph among the set of its vertices.
 
-----
+Я использовал здесь разные подходы коммуникации между микросервисами (RestTemplate for REST and MVC и Feign Client) чтобы показать оба варианта.
+
+- RestTemplate:
+
+for REST in `RemoteRestController`
+
+    http://localhost:8082/dataWithRestTemplate
+    
+for MVC in EmployeeMvcController
+
+    http://localhost:8082/dataWithRestTemplateMvc
+    
+    
+- Feign Client (with Fallback class)
+
+    
+    http://localhost:8082/getAllDataFromAddService
+
+______
+
 
 ### Start
 
@@ -89,7 +108,7 @@ which `second service` generates in the `failed()` method.
 
 You can go to 
     
-    http://localhost:8070/client/1
+    http://localhost:8070/client/add-service
 
 1 - first services name
 
@@ -97,7 +116,7 @@ and you will redirect to first service (http://localhost:8081)
 
 You can go to 
     
-    http://localhost:8070/client/2
+    http://localhost:8070/client/show-service
 
 2 - second services name
 
