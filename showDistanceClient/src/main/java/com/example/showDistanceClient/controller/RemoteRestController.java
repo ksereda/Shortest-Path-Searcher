@@ -23,12 +23,13 @@ public class RemoteRestController {
     @Autowired
     private TestService service;
 
+    // Using RestTemplate (REST) - version 1
     @GetMapping("/data")
     public String data(){
         return service.data();
     }
 
-    // Using RestTemplate (REST)
+    // Using RestTemplate (REST) - version 2
     @RequestMapping("/dataWithRestTemplate")
     public Bucket getAllDataWithRestTemplate() {
         Bucket bucket = new Bucket();
